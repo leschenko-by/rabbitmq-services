@@ -8,7 +8,7 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <IncludeSymbols>true</IncludeSymbols>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <RepositoryUrl>https://github.com/vitaliy-leschenko/rabbitmq-services</RepositoryUrl>
+    <RepositoryUrl>https://github.com/leschenko-by/rabbitmq-services</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>

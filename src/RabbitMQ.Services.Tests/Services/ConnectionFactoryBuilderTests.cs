@@ -44,6 +44,7 @@ namespace RabbitMQ.Services.Tests.Services
             Assert.Equal("password", factory.Password);
             Assert.False(factory.AutomaticRecoveryEnabled);
             Assert.Equal(ConnectionFactory.DefaultHeartbeat, factory.RequestedHeartbeat);
+            Assert.Equal(Environment.MachineName, factory.ClientProperties[ConnectionFactoryBuilder.HostPropertyName]);
         }
 
         [Fact]

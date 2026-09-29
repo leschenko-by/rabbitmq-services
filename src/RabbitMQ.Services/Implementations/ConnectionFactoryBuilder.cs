@@ -6,8 +6,11 @@ namespace RabbitMQ.Services.Implementations
 {
     public sealed class ConnectionFactoryBuilder : IConnectionFactoryBuilder
     {
-        public IConnectionFactory CreateConnectionFactory(IRabbitMQEndpoint endpoint) =>
-            new ConnectionFactory()
+        public const string HostPropertyName = "host";
+
+        public IConnectionFactory CreateConnectionFactory(IRabbitMQEndpoint endpoint)
+        {
+            var factory = new ConnectionFactory()
             {
                 HostName = endpoint.Host,
                 Port = endpoint.Port,
@@ -18,6 +21,11 @@ namespace RabbitMQ.Services.Implementations
                 ConsumerDispatchConcurrency = 8,
                 RequestedHeartbeat = endpoint.Heartbeat ?? ConnectionFactory.DefaultHeartbeat
             };
+
+            // shown in the broker's management UI next to the connection
+            factory.ClientProperties[HostPropertyName] = Environment.MachineName;
+            return factory;
+        }
 
         public string GetFactoryHash(IRabbitMQEndpoint endpoint, ConnectionMode mode)
         {
