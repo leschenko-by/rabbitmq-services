@@ -6,7 +6,7 @@ namespace RabbitMQ.Services.Implementations
 {
     public sealed class ConnectionFactoryBuilder : IConnectionFactoryBuilder
     {
-        public const string HostPropertyName = "host";
+        public const string HostPropertyName = "hostname";
 
         public IConnectionFactory CreateConnectionFactory(IRabbitMQEndpoint endpoint)
         {
